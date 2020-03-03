@@ -3,7 +3,8 @@ Some basic scripts i used to setup a MPI cluster. Extremely targetted and 10% us
 
 
 ### Config.sh
-##### >set ethernet interface for MAC addres on line 3 slaveMAC
+##### >Provide Ethernet interface as 1st commandline arg, 2nd commandline arg is slave prefix (optional) 
+##### >set ethernet interface for MAC address on line 3 slaveMAC
 ##### >set slave prefix on line 4 slaveLines
 ##### >set masterIP on line 6 masterIP
 ##### >set mpiusername on line 7 mpiuserName
@@ -19,6 +20,6 @@ Updates and installs required packages
 
 ### TODO
 ##### Better hostname, IP and MAC resolution
-##### Switch to commandline args
+##### ~~Switch to commandline args~~ _Somewhat done_
 ##### Accomodate for stupidities like reruns on the same machine.
 ##### Put in a shitload of if-else's for safety checks
