@@ -1,8 +1,8 @@
 #!/bin/bash
 slaveIP="$(hostname -I)"
-netInterface="eth0"
-slaveMAC="$(cat /sys/class/net/eth0/address)"
-slaveLines="slave"
+netInterface="$1"
+slaveMAC="$(cat /sys/class/net/$netInterface/address)"
+slaveLines="slave$2-"
 slaveNum=""
 slaveNum+="$(sed -n '$=' ./hosts.txt)"
 slaveLines+="$slaveNum"
@@ -27,7 +27,7 @@ echo -e "  ethernets:
           gateway4: 192.168.1.1
           dhcp4: false
           nameservers:
-              addresses: [8.8.8.8,8.8.4.4]">>/etc/netplan/$FILE_NAME_HERE
+              addresses: [8.8.8.8,8.8.4.4]">>/etc/netplan/01-network-manager-all.yaml
 netplan apply
 
 ##For Ubuntu 16.04
@@ -36,7 +36,7 @@ iface $netInterface inet static
   address $slaveIP$slaveNum
   netmask 255.255.255.0
   gateway 192.168.1.1
-  dns-nameservers 4.4.4.4
+  dns-nameservers 8.8.4.4
   dns-nameservers 8.8.8.8" >> /etc/network/interfaces
 /etc/init.d/network restart
 systemctl restart network
