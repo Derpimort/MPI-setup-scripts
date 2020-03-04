@@ -10,7 +10,7 @@ Some basic scripts i used to setup a MPI cluster. Extremely targetted and 10% us
 ##### >set mpiusername on line 7 mpiuserName
 ##### >set mpiuserPass on line 8 mpiuserPass
 
-Configures the hosts file, creates a separate user for mpi ops, sets hostname.
+Configures the hosts file, creates a separate user for mpi ops, sets hostname, sets static IP series, configures nfs mounting.
 ##### Usage:
 Create a hosts.txt with the ip of master on the first line (dont insert blank lines because im using line numbers to get slave numbers), create a MACs.txt file with MAC address of master. Copy both of the texts and the script to the same folder. Plug pd into slave, sudo execute in terminal in pd, rinse and repeat for all slaves one by one. At the end just append the hosts.txt to your master's /etc/hosts file.... EZ GG
 
