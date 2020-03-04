@@ -40,3 +40,8 @@ iface $netInterface inet static
   dns-nameservers 8.8.8.8" >> /etc/network/interfaces
 /etc/init.d/network restart
 systemctl restart network
+
+#If you want nfs configured
+mkdir /home/$mpiuserName/storage
+echo -e "master:/home/$mpiuserName/storage /home/$mpiuserName/storage nfs timeo=30 0 0" >> /etc/fstab
+mount -a
